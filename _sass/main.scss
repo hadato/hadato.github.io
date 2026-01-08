@@ -1,0 +1,639 @@
+/* =========================
+   THEME
+========================= */
+:root {
+  --bg: #0b0c10;
+  --card: #12141b;
+  --text: #e8eaf0;
+  --muted: #a7adbb;
+
+  --accent: rgb(199, 166, 137);
+  --accent-2: rgb(255, 199, 114);
+  --accent-h1: rgb(199, 166, 137);
+
+  --border: rgba(255,255,255,0.08);
+  --max: 980px;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; }
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Links */
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Subtle page grain (behind everything) */
+/*body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.13;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.65'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-color: var(--accent);
+  mix-blend-mode: normal;   
+  opacity: 0.06;            
+}*/
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.container p {
+  text-align: justify;
+  text-justify: inter-word; /* improves spacing between words */
+  margin-bottom: 1rem;
+}
+
+.container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.65'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-color: transparent;  /* no tint */
+  mix-blend-mode: overlay;        /* or: normal */
+  opacity: 0.1;                  /* adjust 0.05–0.12 */
+}
+
+/* keep page content above it */
+.container { position: relative; z-index: 1; }
+
+/* =========================
+   NAV
+========================= */
+.nav {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 26px;
+}
+
+.nav a { color: var(--text); opacity: .9; }
+.nav a:hover { opacity: 1; }
+.brand { font-weight: 700; letter-spacing: .3px; }
+
+/* =========================
+   LAYOUT CARDS + GRID
+========================= */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+  background: var(--card);
+  border: none;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+}
+
+/* =========================
+   TILE LINKS (HOME)
+   Use: <a class="card card-link tile" ...>
+========================= */
+a.card.card-link.tile {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 280px;
+  cursor: pointer;
+
+  /* stop underline ever appearing in tiles */
+  text-decoration: none;
+}
+a.card.card-link.tile:hover { text-decoration: none; }
+a.card.card-link.tile h2,
+a.card.card-link.tile p { text-decoration: none; }
+
+/* Tile scrim (dark by default, brighter on hover) */
+a.card.card-link.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: rgba(0,0,0,0.65);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+a.card.card-link.tile:hover::before {
+  background: rgba(0,0,0,0.28);
+}
+
+/* Optional tile grain */
+a.card.card-link.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.10;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.45' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1.0'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+}
+
+/* Tile text always above overlays */
+a.card.card-link.tile .tile-text,
+a.card.card-link.tile h2,
+a.card.card-link.tile p {
+  position: relative;
+  z-index: 3;
+}
+
+/* Tile typography */
+a.card.card-link.tile h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: white;
+}
+/*a.card.card-link.tile h2 {
+  font-size: 1.55rem; 
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 6px 0;
+}
+*/
+
+a.card.card-link.tile p {
+  margin: 0;
+  color: rgba(255,255,255,0.88);
+}
+
+/* Tile hover lift/glow (does NOT touch hero) */
+a.card.card-link.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(199,166,137,0.55);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+/* Strong text shadow on hover (readability) */
+a.card.card-link.tile:hover h2,
+a.card.card-link.tile:hover p {
+  text-shadow:
+    0 0 20px rgba(0,0,0,1),
+    0 0 90px rgba(0,0,0,1),
+    44px 0 180px rgba(0,0,0,0.95),
+   -44px 0 180px rgba(0,0,0,0.95),
+    0 10px 40px rgba(0,0,0,1);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+}
+
+/* If hero uses image background */
+.hero.hero--image {
+  /*background-color: transparent;*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Hero image scrim (light) */
+.hero.hero--image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(0,0,0,0.18); /* tweak 0.12–0.28 */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Optional subtle hero grain */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='1.0'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+  z-index: 2;
+}
+
+/* Hero content above overlays */
+.hero__inner { 
+  position: relative;
+  z-index: 3; 
+}
+
+.hero.hero--image h1 {
+  margin: 0 0 12px 0;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--accent-h1);
+  text-shadow:
+    0 0 10px rgba(0,0,0,1),
+    0 0 80px rgba(0,0,0,1),
+    50px 0 200px rgba(0,0,0,0.95),
+   -50px 0 200px rgba(0,0,0,0.95),
+    0 12px 50px rgba(0,0,0,1);
+}
+
+.hero.hero--image .muted {
+  margin: 0;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.96);
+  text-shadow:
+    0 0 8px rgba(0,0,0,1),
+    0 0 60px rgba(0,0,0,1),
+    36px 0 150px rgba(0,0,0,0.9),
+   -36px 0 150px rgba(0,0,0,0.9),
+    0 10px 36px rgba(0,0,0,1);
+}
+
+/* =========================
+   GALLERY
+========================= */
+.gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.gallery-item {
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 3 / 2;  /* use 3:2 tiles */
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item:hover { 
+  text-decoration: none; 
+}
+
+/* =========================
+   FOOTER + MISC
+========================= */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+.footer {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+img.responsive {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border:
+  1px solid var(--border);
+}
+
+/* Projects page: tighter card typography */
+.projects .card h3 {
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.projects .card h3 a {
+  font-size: 1.15rem;       /* smaller title */
+  font-weight: 800;
+  letter-spacing: -0.01em;  /* slightly tighter */
+  text-decoration: none;
+}
+
+.projects .card p.muted {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;       /* smaller summary */
+  line-height: 1.38;
+  letter-spacing: 0;
+}
+
+.projects .badge {
+  font-size: 13px;
+  padding: 3px 9px;
+}
+
+/* Clickable project cards */
+a.project-card {
+  display: block;
+  color: inherit;            /* keep text color */
+  text-decoration: none;     /* no underline */
+}
+
+a.project-card:hover { text-decoration: none; }
+
+/* Keep badges clickable-looking but not “link styled” */
+a.project-card .badge { text-decoration: none; }
+
+/* Optional: hover lift + bloom */
+a.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(199,166,137,0.35);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+/* Ensure card content spacing looks nice */
+a.project-card h3 {
+  margin: 0 0 6px 0;
+}
+a.project-card .project-badges {
+  margin: 10px 0 0 0;
+}
+
+a.project-card * { cursor: pointer; }
+
+/* Project listing tile titles */
+.projects a.project-card h3.project-title-link,
+.projects a.project-card h3,
+.projects a.project-card .project-title-link {
+  color: var(--accent-h1);   /* your muted green headline color */
+  font-weight: 800;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.projects a.project-card:hover h3.project-title-link,
+.projects a.project-card:hover .project-title-link {
+  color: var(--accent-h1);
+  text-decoration: none;
+}
+
+/* Base badge styling */
+.badge {
+  display: inline-block;
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.06);  /* subtle box around badge */
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);          /* glassy look, optional */
+  color: var(--muted);                 /* normal badge text */
+  margin-right: 6px;
+  transition: all 140ms ease;
+}
+
+/* Hover style for badges */
+.badge:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.24);
+  color: white;
+}
+
+/* Status badge specific coloring */
+.badge.accent {
+  background: rgb(65, 47, 31);
+  border-color: var(--accent);
+  color: var(--accent);   /* readable green text */
+  font-weight: 700;
+}
+
+/* Stronger hover for status badge */
+.badge.accent:hover {
+  background: rgb(110, 79, 52);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Finished projects badge */
+.badge.finished, .badge.delivered {
+  background: rgb(40, 60, 110);
+  border-color: rgb(80, 120, 255);
+  color: rgb(150, 190, 255);
+  font-weight: 700;
+}
+
+/* Hover states (optional but matching your brightness idea) */
+.badge.finished:hover, .badge.delivered:hover{
+  background: rgb(60, 90, 160);
+  border-color: rgb(100, 150, 255);
+  color: rgb(210, 230, 255);
+}
+
+/* Opened project pages title color */
+article.card .project-title {
+  color: var(--accent-h1);
+}
+
+
+/* Project header: 2 columns on desktop, stacked on smaller screens */
+.project-header {
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: start;
+}
+
+/* Ensure cover image behaves */
+.project-cover img.responsive {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 820px) {
+  .project-header {
+    grid-template-columns: 1fr;
+  }
+
+/* Put image ABOVE the text on small screens */
+.project-cover { order: -1; }
+/*.project-cover { order: 2; }*/  /* Puts the picture below the text */
+}
+
+body.project-page article h1 a,
+body.project-page article h2 a {
+  text-decoration: none !important;
+}
+
+/* HARD STOP: project content images can never exceed their container */
+article.card img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 14px;
+}
+
+/* Allow shrinking inside grids (prevents overflow to the right) */
+.project-header > * {
+  min-width: 0;
+}
+article.card {
+  min-width: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* Side-by-side inline images in projects */
+.inline-gallery {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  width: 100%;
+  max-width: var(--max); /* same as page */
+  margin: 18px auto;
+}
+
+.inline-gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 14px;
+  aspect-ratio: 3 / 2; /* keeps 3:2 without distortion */
+  display: block;
+}
+
+/* Make the whole tile clickable and feel interactive */
+.lightbox-link {
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.lightbox-link img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+/* Gallery + inline-gallery: subtle bloom around image tiles */
+.gallery-item,
+.lightbox-link {
+  position: relative;
+}
+
+/* soft glow on hover (around the whole tile) */
+.gallery-item:hover,
+.lightbox-link:hover {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.10),
+    0 0 22px rgba(199,166,137,0.28),
+    0 0 55px rgba(199,166,137,0.18);
+  transition: box-shadow 160ms ease;
+}
+
+/* optional: a tiny lift so it feels like a “card” */
+.gallery-item:hover,
+.lightbox-link:hover {
+  transform: translateY(-3px);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+/* keep your zoom but make it more subtle */
+.lightbox-link:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
+
+/* About page side layout */
+.about-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  flex-wrap: wrap; /* stacks on small screens automatically */
+}
+
+.profile-wrapper {
+  background: rgb(216, 210, 204);
+  border-radius: 18px;     
+  padding: 0px;           
+  display: inline-block;  
+  box-shadow: 0 0 40px rgba(153, 143, 128,1);
+  display: flex;
+  align-items: center; /* centers image inside its column */
+  justify-content: center;
+  margin-top: 12px; /* optional fine-tune downward */
+}
+
+.profile-pic {
+  width: 220px;  
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text column */
+.about-text {
+  flex: 1;
+  min-width: 280px; /* ensures readable stacking */
+  white-space: normal !important; /* ensures spaces behave normally */
+  text-align: justify;
+  max-width: var(--max);
+}
+
+/* Optional stacking behavior tweak */
+@media (max-width: 760px) {
+  .profile-pic {
+    width: 72%;
+    margin: 0 auto;
+  }
+  .about-layout {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.about-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: var(--max);
+  margin: 0 auto;
+  align-items: center; /* centers both columns vertically */
+}
+
+/* Make sure project grids don’t inherit About flex */
+body:not(.about-page) .grid.projects {
+  display: grid;
+}

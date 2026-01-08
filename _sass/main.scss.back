@@ -1,0 +1,456 @@
+:root {
+  --bg: #0b0c10;
+  --card: #12141b;
+  --text: #e8eaf0;
+  --muted: #a7adbb;
+
+  /* Your muted green */
+  --accent: rgb(199, 166, 137);      /* main theme green */
+  --accent-2: rgb(255, 199, 114);    /* optional secondary green, slightly lighter */
+  --accent-h1: rgb(199, 166, 137);
+
+  --border: rgba(255,255,255,0.08);
+  --max: 980px;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; }
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Tiles only */
+a.card.card-link.tile {
+  position: relative;
+  overflow: hidden;
+}
+
+/* default: dark */
+a.card.card-link.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: rgba(0,0,0,0.65);
+  transition: background 180ms ease;
+}
+
+/* hover: brighter */
+a.card.card-link.tile:hover::before {
+  background: rgba(0,0,0,0.28);
+}
+
+/* tile grain (optional) */
+a.card.card-link.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.45' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1.0'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+}
+
+/* text above overlays */
+a.card.card-link.tile .tile-text,
+a.card.card-link.tile h2,
+a.card.card-link.tile p {
+  position: relative;
+  z-index: 3;
+}
+
+a.card-link.tile:hover h2,
+a.card-link.tile:hover p {
+  text-shadow: 0 0 90px rgba(0,0,0,1) !important;
+}
+
+/* 👇 Add this right after it */
+.card-link:hover {
+  text-decoration: none;
+}
+
+.card-link, .card-link h1, .card-link h2, .card-link h3 {
+  text-decoration: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; 
+
+  /* Controls how strong the grain is */
+  opacity: 0.13;
+
+  /* This generates neutral noise */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.65'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+
+  /* This tints the noise to your accent color */
+  background-color: var(--accent);
+  mix-blend-mode: soft-light;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.nav {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 26px;
+}
+
+.nav a { color: var(--text); opacity: .9; }
+.nav a:hover { opacity: 1; }
+
+.brand { font-weight: 700; letter-spacing: .3px; }
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: none;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  text-align: center;      /* center the text itself */
+  min-height: 100px;       /* optional: makes tiles a bit more uniform */
+}
+
+.card-link {
+  display: block;
+  color: var(--text);
+  text-decoration: none; /* ← ensures no underline */
+  cursor: pointer;
+}
+
+.card-link:hover {
+  text-decoration: none; /* ← prevents underline on hover too */
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-1px);
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+
+/* Optional: slight lift + glow */
+.card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(199, 166, 137,0.8);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.card-link h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: white;
+}
+
+.card-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 280px;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  border: none; /* removes the frame completely */
+}
+
+/* Ensure text sits above scrim + grain */
+.card-link > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Also ensure headings inside link cards never underline */
+.card-link h3, .card-link h2, .card-link h1 {
+  text-decoration: none;
+}
+
+/* Strong, wide, NATURAL shadow behind the letters */
+.card-link h2,
+.card-link p {
+  text-shadow:
+    0 0 28px rgba(0,0,0,0.95),   /* bigger core */
+    0 0 90px rgba(0,0,0,0.85),   /* big soft halo */
+    34px 0 120px rgba(0,0,0,0.70), /* right spread */
+   -34px 0 120px rgba(0,0,0,0.70); /* left spread */
+}
+
+.card-link:hover h2,
+.card-link:hover p {
+  text-shadow:
+    0 0 34px rgba(0,0,0,1.0),
+    0 0 120px rgba(0,0,0,0.95),
+    46px 0 160px rgba(0,0,0,0.85),
+   -46px 0 160px rgba(0,0,0,0.85);
+}
+
+/* Tile base */
+.tile {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Brighten on hover by reducing scrim darkness */
+.tile:hover::before {
+  background: rgba(0,0,0,0.28);
+}
+
+/* Grain on tiles (optional) */
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.45' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1.0'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+}
+
+/* Text always on top */
+.tile .tile-text,
+.tile h2,
+.tile p {
+  position: relative;
+  z-index: 3;
+}
+
+.tile h2,
+.tile p {
+  text-shadow:
+    0 0 20px  rgba(0,0,0,1.0),
+    0 0 80px  rgba(0,0,0,0.95),
+    32px 0 140px rgba(0,0,0,0.9),
+   -32px 0 140px rgba(0,0,0,0.9),
+    0 6px 24px rgba(0,0,0,0.8);
+  transition: text-shadow 180ms ease;
+}
+
+
+/* No shadow by default */
+/*.tile h2,
+.tile p {
+  text-shadow: none;
+  transition: text-shadow 180ms ease;
+}*/
+
+.tile-text {
+  position: relative;
+  z-index: 3;            /* above tile scrim and grain */
+  display: inline-block; /* shrink to text */
+  padding: 0;            /* no box */
+  width: auto;
+  height: auto;
+}
+
+.tile:hover h2,
+.tile:hover p {
+  text-shadow:
+    0 0 30px  rgba(0,0,0,1.0),
+    0 0 120px rgba(0,0,0,1.0),
+    48px 0 220px rgba(0,0,0,1.0),
+   -48px 0 220px rgba(0,0,0,1.0),
+    0 10px 38px rgba(0,0,0,1.0) !important;
+}
+
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.badge.accent {
+  border-color: rgba(52, 211, 153, 0.35);
+  color: var(--accent);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  /* 👉 Base background color */
+  background: #1a1c23;
+
+  /* Optional: subtle green glow gradient overlay */
+  background-image: linear-gradient(
+    180deg,
+    rgba(67,115,0,0.15),  /* darker green tint */
+    rgba(26,28,35,0)      /* fade to base */
+  );
+
+  margin-bottom: 18px;
+}
+
+.hero h1, .hero-title {
+  color: var(--accent-h1);
+  margin: 0; 
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+
+  /* ↓ Lowered from 0.16 → now lighter effect */
+  opacity: 0.07;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.38' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='1.0'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+
+  mix-blend-mode: screen;
+}
+
+.hero.hero--image {
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero.hero--image h1 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--accent-h1);
+  margin-bottom: 14px;
+
+  /* extremely strong shadow behind letters */
+  text-shadow:
+    0 0 6px   rgba(0,0,0,1.0),
+    0 0 50px  rgba(0,0,0,1.0),
+    0 0 140px rgba(0,0,0,0.98),
+    60px 0 220px rgba(0,0,0,0.95),
+   -60px 0 220px rgba(0,0,0,0.95),
+    0 10px 50px rgba(0,0,0,1.0);
+}
+
+.hero.hero--image .muted {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.98);
+  margin: 0 auto;
+
+  /* MUCH stronger, wider shadow behind letters */
+  text-shadow:
+    0 0 4px   rgba(0,0,0,1.0),     /* sharp core for contrast */
+    0 0 40px  rgba(0,0,0,1.0),     /* strong glow */
+    0 0 120px rgba(0,0,0,0.95),    /* deep ambient darkness */
+    50px 0 180px rgba(0,0,0,0.9),  /* huge spread right */
+   -50px 0 180px rgba(0,0,0,0.9),  /* huge spread left */
+    0 8px 40px rgba(0,0,0,0.9);    /* vertical depth */
+}
+
+/* darken image for text readability */
+.hero.hero--image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(0,0,0,0.2);
+  pointer-events: none;
+}
+
+/* keep text above overlays */
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+.footer {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+img.responsive {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* Default darkening */
+.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: rgba(0,0,0,0.65);   /* <- default dark */
+  transition: background 180ms ease;
+}
+
+.gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.gallery-item {
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}

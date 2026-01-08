@@ -1,0 +1,10 @@
+- title: "Workshop"
+  description: "Build photos and snapshots."
+  images:
+    - src: /assets/images/gallery/workshop/workbench.jpg
+      alt: "Workbench setup"
+    - src: /assets/images/gallery/workshop/printing.jpg
+      alt: "3D printing parts"
+    - src: /assets/images/gallery/workshop/tools.jpg
+      alt: "Tools closeup"
+

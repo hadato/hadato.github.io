@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    <div class="container">
+      {% include nav.html %}
+
+      {% if page.hero_image %}
+        <div class="hero hero--image" style="background-image: url('{{ page.hero_image | relative_url }}');">
+          <div class="hero__inner">
+            {% if page.hero_title %}<h1 class="hero-title">{{ page.hero_title }}</h1>{% endif %}
+            {% if page.hero_subtitle %}<p class="muted">{{ page.hero_subtitle }}</p>{% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {{ content }}
+
+      {% include footer.html %}
+    </div>
+  </body>
+</html>

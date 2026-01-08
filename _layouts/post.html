@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="card">
+  <div class="badge accent">{{ page.date | date: "%b %d, %Y" }}</div>
+  <h1 style="margin-top:10px;">{{ page.title }}</h1>
+  {% if page.tags %}
+    <p class="muted">Tags:
+      {% for t in page.tags %}<span class="badge">{{ t }}</span>{% endfor %}
+    </p>
+  {% endif %}
+  <hr />
+  {{ content }}
+</article>

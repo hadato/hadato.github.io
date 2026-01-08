@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article>
+
+  {% for album in site.data.gallery %}
+    <section class="card" style="margin-bottom:16px;">
+      <h2 style="margin-top:0;">{{ album.title }}</h2>
+      <p class="muted">{{ album.description }}</p>
+      <div class="grid">
+        {% for img in album.images %}
+          <a href="{{ img.src | relative_url }}">
+            <img class="responsive" src="{{ img.src | relative_url }}" alt="{{ img.alt }}">
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</article>

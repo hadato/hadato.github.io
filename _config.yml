@@ -1,0 +1,30 @@
+title: "Hadato Creativity"
+description: "A personal from Tomáš Hadámek showcasing creative projects including bike builds, electronics, music instrument restorations, and photography."
+url: ""
+baseurl: ""
+timezone: Europe/Vienna
+
+permalink: pretty
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap

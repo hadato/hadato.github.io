@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<article class="card">
+  <div class="grid project-header">
+    <div class="project-info">
+      <h1 class="project-title" style="margin-top:0;">{{ page.title }}</h1>
+      <p class="muted">{{ page.summary }}</p>
+
+      <p>
+        {% if page.status %}<span class="badge accent">{{ page.status }}</span>{% endif %}
+
+        {% if page.stack %}
+          {% assign stacks = page.stack | split: "," %}
+          {% for s in stacks %}
+            <span class="badge">{{ s | strip }}</span>
+          {% endfor %}
+        {% endif %}
+      </p>
+    </div>
+
+    <div class="project-cover">
+      {% if page.cover %}
+        <img class="responsive" src="{{ page.cover | relative_url }}" alt="{{ page.title }} cover">
+      {% endif %}
+    </div>
+  </div>
+
+  <hr />
+  {{ content }}
+
+  {%- comment -%}
+    Auto gallery folder = /assets/images/projects/<md-filename-without-ext>/
+    Works for: _projects/hand-watch.md  -> /assets/images/projects/hand-watch/
+  {%- endcomment -%}
+
+  {% assign fname = page.path | split: "/" | last %}    
+  {% assign base  = fname | split: "." | first %}       
+  {% assign folder = "/assets/images/projects/" | append: base | append: "/" %}
+
+  {% assign exts = "jpg,jpeg,png,webp,gif" | split: "," %}
+  {% assign found = 0 %}
+
+  <hr />
+  <h2>Progress posts</h2>
+  <div class="muted">Blog posts tagged with this project:</div>
+
+  {% assign key = page.project_key | default: page.slug %}
+  {% assign related = site.posts | where_exp: "p", "p.project == key" %}
+
+  {% if related.size > 0 %}
+    <ul>
+      {% for post in related %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span class="muted">· {{ post.date | date: "%b %d, %Y" }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="muted">No progress posts yet.</p>
+  {% endif %}
+
+  <hr />
+  <h2>Project Photo Gallery</h2>
+
+  <div class="inline-gallery">
+    {% for f in site.static_files %}
+      {% if f.path contains folder %}
+        {% assign ext = f.extname | remove: "." | downcase %}
+        {% if exts contains ext %}
+          {% assign found = found | plus: 1 %}
+            <a class="lightbox-link" href="{{ f.path | relative_url }}" target="_blank" rel="noopener">
+              <img class="responsive" src="{{ f.path | relative_url }}" alt="{{ page.title }} image {{ found }}">
+            </a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if found == 0 %}
+    <p class="muted">No images found in <code>{{ folder }}</code></p>
+  {% endif %}
+
+
+</article>
