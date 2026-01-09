@@ -229,3 +229,25 @@ html, body { overflow-x: hidden; }
 
 /* Make sure project grids don’t inherit About flex */
 body:not(.about-page) .grid.projects { display: grid; }
+
+/* ========================= LIGHTBOX (overlay + next/prev)
+========================= */
+.lightbox { position: fixed; inset: 0; z-index: 9999; display: none; }
+
+.lightbox.is-open { display: block; }
+
+.lightbox__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.85); }
+
+.lightbox__img { position: absolute; inset: 0; margin: auto; max-width: min(92vw, 1200px); max-height: 88vh; width: auto; height: auto; border-radius: 14px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
+
+.lightbox__btn { position: absolute; top: 50%; transform: translateY(-50%); border: 0; background: rgba(0, 0, 0, 0.35); color: white; width: 46px; height: 46px; border-radius: 999px; cursor: pointer; display: grid; place-items: center; font-size: 26px; line-height: 1; user-select: none; }
+
+.lightbox__btn:hover { background: rgba(0, 0, 0, 0.55); }
+
+.lightbox__prev { left: 16px; }
+
+.lightbox__next { right: 16px; }
+
+.lightbox__close { position: absolute; top: 14px; right: 14px; transform: none; font-size: 28px; }
+
+.lightbox__counter { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); font-size: 1rem; font-weight: 700; color: white; text-shadow: 0 0 12px rgba(0, 0, 0, 0.9), 0 0 32px rgba(0, 0, 0, 0.7); padding: 6px 14px; border-radius: 999px; background: rgba(0, 0, 0, 0.25); backdrop-filter: blur(8px); z-index: 4; }

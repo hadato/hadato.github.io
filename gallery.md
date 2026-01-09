@@ -25,7 +25,9 @@ hero_subtitle: My main passion as a hobby photographer has been macro, detail an
     {% for f in images_sorted %}
       {% assign ext = f.extname | downcase %}
       {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' %}
-        <a class="gallery-item lightbox-link" href="{{ f.path | relative_url }}" target="_blank" rel="noopener">
+        <a class="gallery-item lightbox-link"
+          href="{{ f.path | relative_url }}"
+          data-lightbox="album-{{ album.folder }}">
           <img class="responsive" src="{{ f.path | relative_url }}" alt="{{ f.name }}">
         </a>
       {% endif %}

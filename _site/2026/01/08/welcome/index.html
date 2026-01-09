@@ -50,5 +50,18 @@
 </div>
 
     </div>
+
+    <!-- Lightbox (must be inside body) -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox__backdrop" data-close></div>
+      <img class="lightbox__img" id="lightboxImg" alt="">
+      <div class="lightbox__counter" id="lightboxCounter">1 / 1</div>
+      <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
+      <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
+      <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+    </div>
+
+    <!-- Load JS after markup so it can bind properly -->
+    <script src="/assets/js/lightbox.js" defer></script>
   </body>
 </html>

@@ -221,7 +221,10 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/hand-watch/back.jpeg" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/hand-watch/back.jpeg"
+              data-lightbox="project-hand-watch"
+              data-title="Wristwatch — 1">
               <img class="responsive" src="/assets/images/projects/hand-watch/back.jpeg" alt="Wristwatch image 1">
             </a>
         
@@ -231,7 +234,10 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/hand-watch/bot_copper.png" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/hand-watch/bot_copper.png"
+              data-lightbox="project-hand-watch"
+              data-title="Wristwatch — 2">
               <img class="responsive" src="/assets/images/projects/hand-watch/bot_copper.png" alt="Wristwatch image 2">
             </a>
         
@@ -241,7 +247,10 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/hand-watch/front.jpeg" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/hand-watch/front.jpeg"
+              data-lightbox="project-hand-watch"
+              data-title="Wristwatch — 3">
               <img class="responsive" src="/assets/images/projects/hand-watch/front.jpeg" alt="Wristwatch image 3">
             </a>
         
@@ -251,7 +260,10 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/hand-watch/hand-watch-cropped.jpg" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/hand-watch/hand-watch-cropped.jpg"
+              data-lightbox="project-hand-watch"
+              data-title="Wristwatch — 4">
               <img class="responsive" src="/assets/images/projects/hand-watch/hand-watch-cropped.jpg" alt="Wristwatch image 4">
             </a>
         
@@ -261,7 +273,10 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/hand-watch/top_copper.png" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/hand-watch/top_copper.png"
+              data-lightbox="project-hand-watch"
+              data-title="Wristwatch — 5">
               <img class="responsive" src="/assets/images/projects/hand-watch/top_copper.png" alt="Wristwatch image 5">
             </a>
         
@@ -271,10 +286,15 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/hand-watch/top_final.png" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/hand-watch/top_final.png"
+              data-lightbox="project-hand-watch"
+              data-title="Wristwatch — 6">
               <img class="responsive" src="/assets/images/projects/hand-watch/top_final.png" alt="Wristwatch image 6">
             </a>
         
+      
+    
       
     
       
@@ -378,5 +398,18 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
 </div>
 
     </div>
+
+    <!-- Lightbox (must be inside body) -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox__backdrop" data-close></div>
+      <img class="lightbox__img" id="lightboxImg" alt="">
+      <div class="lightbox__counter" id="lightboxCounter">1 / 1</div>
+      <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
+      <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
+      <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+    </div>
+
+    <!-- Load JS after markup so it can bind properly -->
+    <script src="/assets/js/lightbox.js" defer></script>
   </body>
 </html>

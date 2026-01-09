@@ -237,7 +237,10 @@ In 2024 I signed up for the 2000 mile long anniversary edition of the famous Cze
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/manitou-tuning/shafts.jpg" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/manitou-tuning/shafts.jpg"
+              data-lightbox="project-manitou-tuning"
+              data-title="Manitou Fork and Shock Tuning — 1">
               <img class="responsive" src="/assets/images/projects/manitou-tuning/shafts.jpg" alt="Manitou Fork and Shock Tuning image 1">
             </a>
         
@@ -247,10 +250,15 @@ In 2024 I signed up for the 2000 mile long anniversary edition of the famous Cze
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/manitou-tuning/shims.jpg" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/manitou-tuning/shims.jpg"
+              data-lightbox="project-manitou-tuning"
+              data-title="Manitou Fork and Shock Tuning — 2">
               <img class="responsive" src="/assets/images/projects/manitou-tuning/shims.jpg" alt="Manitou Fork and Shock Tuning image 2">
             </a>
         
+      
+    
       
     
       
@@ -324,5 +332,18 @@ In 2024 I signed up for the 2000 mile long anniversary edition of the famous Cze
 </div>
 
     </div>
+
+    <!-- Lightbox (must be inside body) -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox__backdrop" data-close></div>
+      <img class="lightbox__img" id="lightboxImg" alt="">
+      <div class="lightbox__counter" id="lightboxCounter">1 / 1</div>
+      <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
+      <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
+      <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+    </div>
+
+    <!-- Load JS after markup so it can bind properly -->
+    <script src="/assets/js/lightbox.js" defer></script>
   </body>
 </html>

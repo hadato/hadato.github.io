@@ -71,7 +71,10 @@ layout: default
         {% assign ext = f.extname | remove: "." | downcase %}
         {% if exts contains ext %}
           {% assign found = found | plus: 1 %}
-            <a class="lightbox-link" href="{{ f.path | relative_url }}" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="{{ f.path | relative_url }}"
+              data-lightbox="project-{{ base }}"
+              data-title="{{ page.title }} — {{ found }}">
               <img class="responsive" src="{{ f.path | relative_url }}" alt="{{ page.title }} image {{ found }}">
             </a>
         {% endif %}

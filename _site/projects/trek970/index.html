@@ -277,7 +277,10 @@ A goal of this project was to build a relatively budget bike for a friend of min
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/trek970/trek970_01.jpg" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/trek970/trek970_01.jpg"
+              data-lightbox="project-trek970"
+              data-title="Monster Gravel Trek 970 — 1">
               <img class="responsive" src="/assets/images/projects/trek970/trek970_01.jpg" alt="Monster Gravel Trek 970 image 1">
             </a>
         
@@ -287,7 +290,10 @@ A goal of this project was to build a relatively budget bike for a friend of min
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/trek970/trek970_02.jpg" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/trek970/trek970_02.jpg"
+              data-lightbox="project-trek970"
+              data-title="Monster Gravel Trek 970 — 2">
               <img class="responsive" src="/assets/images/projects/trek970/trek970_02.jpg" alt="Monster Gravel Trek 970 image 2">
             </a>
         
@@ -297,10 +303,15 @@ A goal of this project was to build a relatively budget bike for a friend of min
         
         
           
-            <a class="lightbox-link" href="/assets/images/projects/trek970/trek970_03.jpg" target="_blank" rel="noopener">
+            <a class="lightbox-link"
+              href="/assets/images/projects/trek970/trek970_03.jpg"
+              data-lightbox="project-trek970"
+              data-title="Monster Gravel Trek 970 — 3">
               <img class="responsive" src="/assets/images/projects/trek970/trek970_03.jpg" alt="Monster Gravel Trek 970 image 3">
             </a>
         
+      
+    
       
     
   </div>
@@ -316,5 +327,18 @@ A goal of this project was to build a relatively budget bike for a friend of min
 </div>
 
     </div>
+
+    <!-- Lightbox (must be inside body) -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox__backdrop" data-close></div>
+      <img class="lightbox__img" id="lightboxImg" alt="">
+      <div class="lightbox__counter" id="lightboxCounter">1 / 1</div>
+      <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
+      <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
+      <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+    </div>
+
+    <!-- Load JS after markup so it can bind properly -->
+    <script src="/assets/js/lightbox.js" defer></script>
   </body>
 </html>
