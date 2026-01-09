@@ -3,13 +3,24 @@
   <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Welcome — functional website · Hadato Creativity</title>
-  <meta name="description" content="Finally, a first functional website!!!
+  <title>Website update: navigation buttons and upgraded blog page · Hadato Creativity</title>
+  <meta name="description" content="A significant update to the website.
 
 " />
+
   <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- 
+  <link rel="icon" type="image/png" href="/assets/pictures/favicon.png">
+
+  <link rel="apple-touch-icon" href="/assets/pictures/favicon.png">
+  -->
+
   <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Hadato Creativity" />
 </head>
+
+
+  <script src="/assets/js/pager.js"></script>
 
   <body>
     <div class="container">
@@ -30,25 +41,48 @@
       
 
       <article class="card">
-  <div class="badge accent">Jan 08, 2026</div>
-  <h1 style="margin-top:10px;">Welcome — functional website</h1>
+  <div class="badge accent">Jan 09, 2026</div>
+
+  <h1 style="margin-top:10px;">Website update: navigation buttons and upgraded blog page</h1>
+
   
-    <p class="muted">Tags:
-      <span class="badge">intro</span>
+    <p class="muted">
+      Tags:
+      
+        <span class="badge">update</span>
+      
     </p>
   
+
   <hr />
-  <p>Finally, a first functional website!!!</p>
 
-<p>After a bit of struggle I managed to design a relatively responsive website to present my projects and pictures. Enjoy!</p>
+  <p>A significant update to the website.</p>
 
+<p>New design of the blog.</p>
+
+<p>Navigation buttons added both to the project and blog pages.</p>
+
+
+  <nav class="pager" aria-label="Post navigation">
+    
+      <a class="pager__btn pager__prev" href="/2026/01/08/website/" aria-label="Previous post">‹</a>
+    
+
+    <button class="pager__btn pager__top" type="button" aria-label="Back to top">⇡ Top</button>
+
+    <a class="pager__home" href="/blog/">Back to posts</a>
+
+    
+  </nav>
+  
 </article>
-
-
+        
       <div class="footer">
   <div>© 2026 Hadato Creativity · Built with Jekyll on GitHub Pages</div>
 </div>
 
+
+      <script src="/assets/js/pager.js"></script>
     </div>
 
     <!-- Lightbox (must be inside body) -->
@@ -59,6 +93,8 @@
       <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
       <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
       <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+      <button class="pager__btn pager__top" type="button">⇧ Top</button>
+
     </div>
 
     <!-- Load JS after markup so it can bind properly -->

@@ -8,9 +8,20 @@
 This project came from a need of a faster bike which would be capable of handling both road rides, gravel biking and easy bike-packing.
 
 " />
+
   <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- 
+  <link rel="icon" type="image/png" href="/assets/pictures/favicon.png">
+
+  <link rel="apple-touch-icon" href="/assets/pictures/favicon.png">
+  -->
+
   <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Hadato Creativity" />
 </head>
+
+
+  <script src="/assets/js/pager.js"></script>
 
   <body>
     <div class="container">
@@ -458,18 +469,37 @@ This project came from a need of a faster bike which would be capable of handlin
     
       
     
+      
+    
+      
+    
   </div>
 
   
 
+<nav class="pager">
+  
+    <a class="pager__btn pager__prev" href="/projects/manitou-tuning/">‹</a>
+  
+
+  <button class="pager__btn pager__top" type="button" aria-label="Back to top">⇡ Top</button>
+
+  <a class="pager__home" href="/projects/">Back to projects</a>
+
+  
+    <a class="pager__btn pager__next" href="/projects/petrof/">›</a>
+  
+</nav>
 
 </article>
 
-
+        
       <div class="footer">
   <div>© 2026 Hadato Creativity · Built with Jekyll on GitHub Pages</div>
 </div>
 
+
+      <script src="/assets/js/pager.js"></script>
     </div>
 
     <!-- Lightbox (must be inside body) -->
@@ -480,6 +510,8 @@ This project came from a need of a faster bike which would be capable of handlin
       <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
       <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
       <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+      <button class="pager__btn pager__top" type="button">⇧ Top</button>
+
     </div>
 
     <!-- Load JS after markup so it can bind properly -->

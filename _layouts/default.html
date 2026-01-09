@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
   {% include head.html %}
+
+  <script src="{{ '/assets/js/pager.js' | relative_url }}"></script>
+
   <body>
     <div class="container">
       {% include nav.html %}
@@ -15,8 +18,10 @@
       {% endif %}
 
       {{ content }}
-
+        
       {% include footer.html %}
+
+      <script src="{{ '/assets/js/pager.js' | relative_url }}"></script>
     </div>
 
     <!-- Lightbox (must be inside body) -->
@@ -27,6 +32,8 @@
       <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
       <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
       <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+      <button class="pager__btn pager__top" type="button">⇧ Top</button>
+
     </div>
 
     <!-- Load JS after markup so it can bind properly -->

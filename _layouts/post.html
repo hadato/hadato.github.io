@@ -1,14 +1,37 @@
 ---
 layout: default
 ---
+
 <article class="card">
   <div class="badge accent">{{ page.date | date: "%b %d, %Y" }}</div>
+
   <h1 style="margin-top:10px;">{{ page.title }}</h1>
+
   {% if page.tags %}
-    <p class="muted">Tags:
-      {% for t in page.tags %}<span class="badge">{{ t }}</span>{% endfor %}
+    <p class="muted">
+      Tags:
+      {% for t in page.tags %}
+        <span class="badge">{{ t }}</span>
+      {% endfor %}
     </p>
   {% endif %}
+
   <hr />
+
   {{ content }}
+
+  <nav class="pager" aria-label="Post navigation">
+    {% if page.previous %}
+      <a class="pager__btn pager__prev" href="{{ page.previous.url | relative_url }}" aria-label="Previous post">‹</a>
+    {% endif %}
+
+    <button class="pager__btn pager__top" type="button" aria-label="Back to top">⇡ Top</button>
+
+    <a class="pager__home" href="{{ '/blog/' | relative_url }}">Back to posts</a>
+
+    {% if page.next %}
+      <a class="pager__btn pager__next" href="{{ page.next.url | relative_url }}" aria-label="Next post">›</a>
+    {% endif %}
+  </nav>
+  
 </article>

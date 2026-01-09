@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Home · Hadato Creativity</title>
   <meta name="description" content="A personal from Tomáš Hadámek showcasing creative projects including bike builds, electronics, music instrument restorations, and photography." />
+
   <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- 
+  <link rel="icon" type="image/png" href="/assets/pictures/favicon.png">
+
+  <link rel="apple-touch-icon" href="/assets/pictures/favicon.png">
+  -->
+
   <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Hadato Creativity" />
 </head>
+
+
+  <script src="/assets/js/pager.js"></script>
 
   <body>
     <div class="container">
@@ -68,7 +79,12 @@
 <ul>
   
     <li>
-      <a href="/2026/01/08/welcome/">Welcome — functional website</a>
+      <a href="/2026/01/09/website/">Website update: navigation buttons and upgraded blog page</a>
+      <span class="muted">· Jan 09, 2026</span>
+    </li>
+  
+    <li>
+      <a href="/2026/01/08/website/">Welcome — functional website</a>
       <span class="muted">· Jan 08, 2026</span>
     </li>
   
@@ -87,18 +103,15 @@
       <span class="muted">· Oct 19, 2025</span>
     </li>
   
-    <li>
-      <a href="/2025/10/09/malish/">Malish accordion - new reed block and bellow seals!</a>
-      <span class="muted">· Oct 09, 2025</span>
-    </li>
-  
 </ul>
 
-
+        
       <div class="footer">
   <div>© 2026 Hadato Creativity · Built with Jekyll on GitHub Pages</div>
 </div>
 
+
+      <script src="/assets/js/pager.js"></script>
     </div>
 
     <!-- Lightbox (must be inside body) -->
@@ -109,6 +122,8 @@
       <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
       <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
       <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+      <button class="pager__btn pager__top" type="button">⇧ Top</button>
+
     </div>
 
     <!-- Load JS after markup so it can bind properly -->

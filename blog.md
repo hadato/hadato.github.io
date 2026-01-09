@@ -4,18 +4,38 @@ title: Blog
 permalink: /blog/
 hero_image: /assets/images/hero/blog.jpg
 hero_title: Blog
-hero_subtitle: The current project progress is documented here. 
+hero_subtitle: The current project progress is documented here.
 ---
 
-{% for post in site.posts %}
-  <div class="card" style="margin-bottom:16px;">
-    <div class="badge accent">{{ post.date | date: "%b %d, %Y" }}</div>
-    <h2 style="margin:10px 0 6px 0;">
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </h2>
-    <p class="muted">{{ post.excerpt | strip_html | truncate: 180 }}</p>
-    {% if post.project %}
-      <div class="muted">Project: <span class="badge">{{ post.project }}</span></div>
-    {% endif %}
-  </div>
-{% endfor %}
+<div class="posts posts--list">
+  {% for post in site.posts %}
+    <a class="card post-row" href="{{ post.url | relative_url }}">
+      <!-- LEFT: date + tags -->
+      <div class="post-row__meta">
+        <span class="badge accent">{{ post.date | date: "%b %d, %Y" }}</span>
+
+        {% if post.tags %}
+          <div class="post-row__tags post-row__tags--meta">
+            {% for t in post.tags %}
+              <span class="badge">{{ t }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- MIDDLE: title + excerpt -->
+      <div class="post-row__main">
+        <h3 class="post-row__title">{{ post.title }}</h3>
+
+        {% if post.excerpt %}
+          <p class="muted post-row__excerpt">
+            {{ post.excerpt | strip_html | truncate: 160 }}
+          </p>
+        {% endif %}
+      </div>
+
+      <!-- RIGHT: chevron -->
+      <!-- <div class="post-row__chev" aria-hidden="true">›</div> -->
+    </a>
+  {% endfor %}
+</div>

@@ -57,6 +57,15 @@
 
   // Open on click (prevent default navigation)
   document.addEventListener("click", (e) => {
+    // 1) Pager "Top" button (works anywhere)
+    const topBtn = e.target.closest(".pager__top");
+    if (topBtn) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // 2) Lightbox links
     const a = e.target.closest("a[data-lightbox]");
     if (!a) return;
 
@@ -80,5 +89,16 @@
     if (e.key === "Escape") close();
     if (e.key === "ArrowRight") next();
     if (e.key === "ArrowLeft") prev();
+  });
+})();
+
+// Pager "Top" button (independent of lightbox)
+(function () {
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".pager__top");
+    if (!btn) return;
+
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 })();

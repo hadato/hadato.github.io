@@ -6,9 +6,20 @@
   <title>Wristwatch · Hadato Creativity</title>
   <meta name="description" content="Goal
 As a person who normally does not wear hand watch, I wanted to have a wristwatch which would motivate me to wear it. Therefore I decided to build a bina..." />
+
   <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- 
+  <link rel="icon" type="image/png" href="/assets/pictures/favicon.png">
+
+  <link rel="apple-touch-icon" href="/assets/pictures/favicon.png">
+  -->
+
   <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Hadato Creativity" />
 </head>
+
+
+  <script src="/assets/js/pager.js"></script>
 
   <body>
     <div class="container">
@@ -385,18 +396,37 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
     
       
     
+      
+    
+      
+    
   </div>
 
   
 
+<nav class="pager">
+  
+    <a class="pager__btn pager__prev" href="/projects/air-purifier/">‹</a>
+  
+
+  <button class="pager__btn pager__top" type="button" aria-label="Back to top">⇡ Top</button>
+
+  <a class="pager__home" href="/projects/">Back to projects</a>
+
+  
+    <a class="pager__btn pager__next" href="/projects/malish/">›</a>
+  
+</nav>
 
 </article>
 
-
+        
       <div class="footer">
   <div>© 2026 Hadato Creativity · Built with Jekyll on GitHub Pages</div>
 </div>
 
+
+      <script src="/assets/js/pager.js"></script>
     </div>
 
     <!-- Lightbox (must be inside body) -->
@@ -407,6 +437,8 @@ As a person who normally does not wear hand watch, I wanted to have a wristwatch
       <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
       <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
       <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+      <button class="pager__btn pager__top" type="button">⇧ Top</button>
+
     </div>
 
     <!-- Load JS after markup so it can bind properly -->

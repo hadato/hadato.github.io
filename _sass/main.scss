@@ -1,3 +1,12 @@
+/*Scaling specific font size*/
+@media (max-width: 900px) {
+  html { font-size: 15.5px; }
+}
+
+@media (max-width: 520px) {
+  html { font-size: 14.5px; }
+}
+
 /* =========================
    THEME
 ========================= */
@@ -333,6 +342,9 @@ img.responsive {
   1px solid var(--border);
 }
 
+/* =========================
+   PROJECTS PAGE
+========================= */  
 /* Projects page: tighter card typography */
 .projects .card h3 {
   margin: 0 0 6px 0;
@@ -403,6 +415,9 @@ a.project-card * { cursor: pointer; }
   text-decoration: none;
 }
 
+/* =========================
+   PROJECT PAGES
+========================= */  
 /* Base badge styling */
 .badge {
   display: inline-block;
@@ -511,6 +526,179 @@ html, body {
   overflow-x: hidden;
 }
 
+/* =========================
+   BLOG POSTS
+========================= */
+/* Clickable post cards (whole tile is a link) */
+a.post-card {
+  display: block;
+  color: inherit;
+  text-decoration: none !important;
+}
+
+a.post-card:hover {
+  text-decoration: none !important;
+}
+
+/* Prevent underlines anywhere inside */
+a.post-card * {
+  text-decoration: none !important;
+}
+
+/* Title styling (no “link blue”, no highlight) */
+a.post-card .post-card__title {
+  margin: 10px 0 6px 0;
+  color: var(--accent-h1);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+/* Optional: excerpt tighter */
+a.post-card .post-card__excerpt {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Optional: hover lift + bloom like projects */
+a.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.10),
+    0 0 22px rgba(199,166,137,0.22),
+    0 0 55px rgba(199,166,137,0.14);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+/* Ensure it feels clickable */
+a.post-card * { cursor: pointer; }
+
+/* Blog listing cards: no underline anywhere */
+.posts a.post-card,
+.posts a.post-card:hover,
+.posts a.post-card:focus,
+.posts a.post-card:active {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* Make sure title never becomes “link styled” */
+.posts a.post-card .post-card__title {
+  text-decoration: none !important;
+  color: var(--accent-h1);
+}
+
+/* =========================
+   BLOG LIST: flat rows (one per line)
+========================= */
+.posts--list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+a.post-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* date | content | chevron */
+  gap: 14px;
+  align-items: center;
+
+  text-decoration: none !important;
+  color: inherit;
+
+  padding: 16px 16px; /* override card padding if needed */
+}
+
+a.post-row:hover { text-decoration: none !important; }
+
+/* Main content */
+.post-row__title {
+  margin: 0 0 6px 0;
+  color: var(--accent-h1);
+  font-weight: 900;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  text-decoration: none !important;
+}
+
+.post-row__excerpt {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.post-row__tags {
+  margin-top: 10px;
+}
+
+/* Right chevron */
+.post-row__chev {
+  font-size: 1.6rem;
+  opacity: 0.65;
+  padding-left: 6px;
+}
+
+/* Hover feel (same vibe as projects) */
+a.post-row:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.10),
+    0 0 22px rgba(199,166,137,0.22),
+    0 0 55px rgba(199,166,137,0.14);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+a.post-row * {
+  text-decoration: none !important; /* prevent underline anywhere */
+  cursor: pointer;
+}
+
+/* Meta column stacks date + tags vertically */
+.post-row__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  white-space: nowrap;
+}
+
+/* Smaller tags under date */
+.post-row__tags--meta .badge {
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  margin-right: 4px;
+}
+
+/* Tighten row height a bit */
+a.post-row {
+  padding: 14px 16px;
+}
+
+.post-row__main {
+  min-width: 0; /* prevents overflow issues in grid */
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 560px) {
+  a.post-row {
+    grid-template-columns: 1fr; /* stack */
+    gap: 10px;
+  }
+  .post-row__chev { display: none; }
+}
+
+@media (max-width: 560px) {
+  .post-row__meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+  }
+}
+
+/* =========================
+   INLINE GALLERIES
+========================= */  
 /* Side-by-side inline images in projects */
 .inline-gallery {
   display: grid;
@@ -575,6 +763,9 @@ html, body {
   filter: brightness(1.08);
 }
 
+/* =========================
+   ABOUT PAGE     
+========================= */
 /* About page side layout */
 .about-layout {
   display: flex;
@@ -601,6 +792,7 @@ html, body {
   height: auto;
   display: block;
 }
+
 
 /* Text column */
 .about-text {
@@ -713,4 +905,101 @@ body:not(.about-page) .grid.projects {
   background: rgba(0,0,0,0.25);
   backdrop-filter: blur(8px);
   z-index: 4;
+}
+
+
+/* =========================
+   PAGINATION (FLOATING + DOCKED)
+========================= */
+/* The card becomes the docking container */
+article.card { 
+  position: relative;
+  padding-bottom: 80px; /* space so content isn't hidden behind floating pager */
+}
+
+/* Floating pager (default) */
+.pager {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 50;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: fit-content;
+  flex-wrap: nowrap !important;   /* never go to 2 lines */
+  white-space: nowrap;            /* keep text on one line */
+  margin: 0;
+  padding: 5px 10px;
+
+  border-radius: 999px;
+  background: rgba(18, 20, 27, 0.72);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(10px);
+}
+
+/* If space is truly too tight, allow sideways scroll instead of wrapping */
+.pager {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;          /* Firefox */
+}
+.pager::-webkit-scrollbar { display: none; } /* Chromium */
+
+/* Docked pager: stops at the bottom INSIDE the card */
+body.pager-docked .pager {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+}
+
+/* Prevent pager wrapping when docked */
+body.pager-docked .pager {
+  width: fit-content;              /* wider container inside the card */
+  max-width: var(--max);   /* never exceed page width */
+  white-space: nowrap;     /* keep everything on one line */
+  flex-wrap: nowrap;       /* never wrap into 2 lines */
+  justify-content: center;
+  padding: 5px 10px;
+  gap: 10px;
+  box-sizing: border-box;
+  overflow-x: auto;        /* if extremely needed, allow horizontal scroll instead of wrapping */
+}
+
+/* Buttons */
+.pager__btn, .pager__home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  padding: 7px 10px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(199, 166, 137,0.92);
+  text-decoration: none !important;
+
+  font-weight: 800;
+  /*font-size: 1rem !important;*/
+  line-height: 1;
+  flex: 0 0 auto;                 /* don't shrink -> prevents wrap */
+}
+
+.pager__btn:hover, .pager__home:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.24);
+  box-shadow: 0 0 26px rgba(199,166,137,0.40);
+  transform: translateY(-1px);
+}
+
+article.card .pager__btn,
+article.card .pager__home {
+  font-size: 0.9rem;
 }

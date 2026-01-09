@@ -8,9 +8,20 @@
 A goal of this project was to build a relatively budget bike for a friend of mine for commuting, easy terrain and occasional bike-packing.
 
 " />
+
   <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- 
+  <link rel="icon" type="image/png" href="/assets/pictures/favicon.png">
+
+  <link rel="apple-touch-icon" href="/assets/pictures/favicon.png">
+  -->
+
   <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Hadato Creativity" />
 </head>
+
+
+  <script src="/assets/js/pager.js"></script>
 
   <body>
     <div class="container">
@@ -314,18 +325,35 @@ A goal of this project was to build a relatively budget bike for a friend of min
     
       
     
+      
+    
+      
+    
   </div>
 
   
 
+<nav class="pager">
+  
+    <a class="pager__btn pager__prev" href="/projects/petrof/">‹</a>
+  
+
+  <button class="pager__btn pager__top" type="button" aria-label="Back to top">⇡ Top</button>
+
+  <a class="pager__home" href="/projects/">Back to projects</a>
+
+  
+</nav>
 
 </article>
 
-
+        
       <div class="footer">
   <div>© 2026 Hadato Creativity · Built with Jekyll on GitHub Pages</div>
 </div>
 
+
+      <script src="/assets/js/pager.js"></script>
     </div>
 
     <!-- Lightbox (must be inside body) -->
@@ -336,6 +364,8 @@ A goal of this project was to build a relatively budget bike for a friend of min
       <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Close">×</button>
       <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Previous">‹</button>
       <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Next">›</button>
+      <button class="pager__btn pager__top" type="button">⇧ Top</button>
+
     </div>
 
     <!-- Load JS after markup so it can bind properly -->
