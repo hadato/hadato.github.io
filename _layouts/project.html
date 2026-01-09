@@ -86,17 +86,49 @@ layout: default
     <p class="muted">No images found in <code>{{ folder }}</code></p>
   {% endif %}
 
-<nav class="pager">
-  {% if page.previous %}
-    <a class="pager__btn pager__prev" href="{{ page.previous.url | relative_url }}">‹</a>
+{%- comment -%}
+  Custom prev/next for projects based on the same sorting as the projects index.
+  Requires each project to have: order: <number>
+{%- endcomment -%}
+
+{% assign sorted_projects = site.projects | sort: "order" %}
+
+{%- comment -%}
+  Find current index in sorted list by matching URL.
+{%- endcomment -%}
+{% assign current_index = nil %}
+{% for p in sorted_projects %}
+  {% if p.url == page.url %}
+    {% assign current_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% if current_index != nil %}
+  {% assign prev_index = current_index | minus: 1 %}
+  {% assign next_index = current_index | plus: 1 %}
+
+  {% assign prev_project = nil %}
+  {% assign next_project = nil %}
+
+  {% if prev_index >= 0 %}
+    {% assign prev_project = sorted_projects[prev_index] %}
+  {% endif %}
+  {% if next_index < sorted_projects.size %}
+    {% assign next_project = sorted_projects[next_index] %}
+  {% endif %}
+{% endif %}
+
+<nav class="pager" aria-label="Project navigation">
+  {% if prev_project %}
+    <a class="pager__btn pager__prev" href="{{ prev_project.url | relative_url }}" aria-label="Previous project">‹</a>
   {% endif %}
 
   <button class="pager__btn pager__top" type="button" aria-label="Back to top">⇡ Top</button>
 
   <a class="pager__home" href="{{ '/projects/' | relative_url }}">Back to projects</a>
 
-  {% if page.next %}
-    <a class="pager__btn pager__next" href="{{ page.next.url | relative_url }}">›</a>
+  {% if next_project %}
+    <a class="pager__btn pager__next" href="{{ next_project.url | relative_url }}" aria-label="Next project">›</a>
   {% endif %}
 </nav>
 

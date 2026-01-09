@@ -6,6 +6,7 @@ stack: "Bike restoration"
 cover: /assets/images/projects/nishiki/nishiki_01.jpg
 project_key: Nishiki
 page_type: project
+order: 9999
 ---
 
 ## Goal

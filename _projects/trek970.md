@@ -6,6 +6,7 @@ stack: "Bike restoration"
 cover: /assets/images/projects/trek970/trek970_01.jpg
 project_key: Trek970
 page_type: project
+order: 9999
 ---
 
 ## Goal
