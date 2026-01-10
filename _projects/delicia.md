@@ -18,7 +18,7 @@ My first idea was to get a widely available Hohner Concerto III, but I could not
 
 The bellows were in a good shape. The rest of the instrument looks OK. At least, that was what I could see from the picture. 
 
-The reality was a bit different. When the instrument arrived I realized that the body has some damage which was previously fixed. It looks like the instrument was dropped on one of the right corners and glued together. A few more bits were broken/cracked at the bottom of the instrument and so I had to do a bit of wood working before doing anything else. 
+The reality was a bit different. When the instrument arrived I realized that the body has some damage which was previously fixed. It looks like the instrument was dropped on one of the right bottom corner and glued together. A few more bits were broken/cracked at the bottom of the instrument and so I had to do a bit of wood working before doing anything else. 
 
 While gluing together the body of the instrument, I realized that the wood blocks holding the bass machine were also loose and requited fixing. The original glue and two nails were apparently not enough to hold them in place. 
 
