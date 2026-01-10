@@ -354,4 +354,10 @@ body.pager-docked .pager { width: fit-content; /* wider container inside the car
 
 .pager__btn:hover, .pager__home:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.24); box-shadow: 0 0 26px rgba(199, 166, 137, 0.4); transform: translateY(-1px); }
 
+.post-project-link { font-weight: 700; color: var(--accent-h1); text-decoration: none; }
+
+.pager__project { font-weight: 800; }
+
+.post-project-link:hover { text-decoration: underline; }
+
 article.card .pager__btn, article.card .pager__home { font-size: 0.9rem; }

@@ -2,8 +2,30 @@
 layout: default
 ---
 
+{% assign pkey_lc = page.project | default: "" | downcase %}
+{% assign project = nil %}
+
+{% if pkey_lc != "" %}
+  {% for pr in site.projects %}
+    {% assign pr_key_lc = pr.project_key | default: pr.slug | downcase %}
+    {% if pr_key_lc == pkey_lc %}
+      {% assign project = pr %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
 <article class="card">
   <div class="badge accent">{{ page.date | date: "%b %d, %Y" }}</div>
+
+  {% if project %}
+  <p class="muted">
+    Part of project:
+    <a href="{{ project.url | relative_url }}" class="post-project-link">
+      {{ project.title }}
+    </a>
+  </p>
+  {% endif %} 
 
   <h1 style="margin-top:10px;">{{ page.title }}</h1>
 
@@ -28,6 +50,14 @@ layout: default
     <button class="pager__btn pager__top" type="button" aria-label="Back to top">⇡ Top</button>
 
     <a class="pager__home" href="{{ '/blog/' | relative_url }}">Back to posts</a>
+
+    {% if project %}
+    <a class="pager__btn pager__project"
+      href="{{ project.url | relative_url }}"
+      aria-label="Back to project">
+      ⤴ Project
+    </a>
+    {% endif %}
 
     {% if page.next %}
       <a class="pager__btn pager__next" href="{{ page.next.url | relative_url }}" aria-label="Next post">›</a>

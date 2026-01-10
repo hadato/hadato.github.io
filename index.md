@@ -3,7 +3,7 @@ layout: default
 title: Home
 hero_image: /assets/images/hero/home.jpg
 hero_title: Tomáš Hadámek Personal Website
-hero_subtitle: Welcome to my personal website where I gather my creative projects. These projects span bike builds, various electronic projects, and more recently music instrument restorations. As a passionate photograher, I aslo present some of my favorite pictures.
+hero_subtitle: Welcome to my personal website where I gather my creative projects. These projects span bike builds, various electronic projects, and more recently music instrument restorations. As a passionate photographer, I also present some of my favorite pictures.
 ---
 
 <div class="grid">

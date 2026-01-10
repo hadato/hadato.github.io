@@ -999,6 +999,20 @@ body.pager-docked .pager {
   transform: translateY(-1px);
 }
 
+.post-project-link {
+  font-weight: 700;
+  color: var(--accent-h1);
+  text-decoration: none;
+}
+
+.pager__project {
+  font-weight: 800;
+}
+
+.post-project-link:hover {
+  text-decoration: underline;
+}
+
 article.card .pager__btn,
 article.card .pager__home {
   font-size: 0.9rem;
