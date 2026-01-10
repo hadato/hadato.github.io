@@ -6,7 +6,7 @@ stack: "Embedded systems, C++ for uC, PCB design"
 cover: /assets/images/projects/hand-watch/hand-watch-cropped.jpg
 project_key: hand-watch
 page_type: project
-order: 4
+order: 3
 ---
 
 ## Goal

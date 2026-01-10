@@ -6,7 +6,7 @@ stack: "Bike repairs"
 cover: /assets/images/projects/manitou-tuning/shims.jpg
 project_key: Manitou-tuning
 page_type: project
-order: 3
+order: 4
 ---
 
 ## Goal
