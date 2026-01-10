@@ -13,7 +13,7 @@ Besides my creative projects, I love photography, dancing and enjoy outdoor spor
 
 In the recent years I got drawn to ultra-endurance biking and bike-packing racing and attended some of well known races such as The Silk Road Mountain Race, 1000 Miles Adventure, Loudání, Istraland. 
 
-I have also been an active member and a tour lead of the [Wiener Shotteria gravel group](https://schotteria.com/).
+I have also been an active member and a tour lead of the [Wiener Shotteria](https://schotteria.com/) gravel biking community/project.
 
 - 🧠 [My ResearchGate](https://www.researchgate.net/profile/Tomas-Hadamek-4)
 - 💻 [My GitHub](https://github.com/hadato)
