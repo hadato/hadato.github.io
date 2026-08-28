@@ -4,7 +4,7 @@ summary: "Sculptures made of metallic wire. The sculptures are made for friends,
 status: "Always in progress"
 stack: "Wire sculptures"
 cover: /assets/images/projects/wire-sculptures/10_accordeonist.jpg
-project_key: Malish
+project_key: WireSculptures
 page_type: project
 order: 2
 ---
