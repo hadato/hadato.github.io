@@ -1,6 +1,6 @@
 ---
 title: "Travel Accordion: Malish Chromatic Button Accordion"
-summary: "A complete restoration of a small chromatic kid's accordion Malish with unusual 36 bass keys (in 3 rows) and<br>25 buttons in the treble."
+summary: "A complete restoration of a small chromatic kid's accordion Malish with unusual 36 bass keys (in 3 rows) and 25 buttons in the treble."
 status: "In progress"
 stack: "Accordion restoration"
 cover: /assets/images/projects/malish/malish.webp
